@@ -10,7 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from logging import INFO, WARNING
 import os
+
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -119,3 +122,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR ,'static'),
 )
+
+EMAIL_BACKEND = 'dajango.core.email.backends.console.EmailBackend'
+
+MESSAGE_TAGS = {
+    messages.ERROR:'alert alert-danger',
+    messages.WARNING:'alert alert-warning',
+    messages.SUCCESS:'alert alert-success',
+    messages.INFO:'alert alert-info',
+}
