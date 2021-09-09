@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'diary.apps.DiaryConfig',
+    'accounts.apps.AccountsConfig'
 ]
 
 MIDDLEWARE = [
@@ -123,7 +124,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR ,'static'),
 )
 
-EMAIL_BACKEND = 'dajango.core.email.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MESSAGE_TAGS = {
     messages.ERROR:'alert alert-danger',
@@ -131,3 +132,5 @@ MESSAGE_TAGS = {
     messages.SUCCESS:'alert alert-success',
     messages.INFO:'alert alert-info',
 }
+
+AUTH_USER_MODEL = 'accounts.Customer'

@@ -1,4 +1,4 @@
-from diary.forms import InquiryForm
+from .forms import InquiryForm
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.views import generic
