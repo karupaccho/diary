@@ -141,7 +141,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 SITE_ID = 1
 
-AUTHEENTICATION_BACKENDS = (
+AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend'
 )
@@ -155,8 +155,12 @@ ACCOUNT_EMAIL_REQUIRED = True
 LOGIN_REDIRECT_URL = 'diary:index'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 
-ACCOUNTS_LOGOUT_ON_GET = True
+ACCOUNT_LOGOUT_ON_GET = True
 
 ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
 
 DEFAULT_FROM_EMAIL = 'admin@example.com'
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+MEDIA_URL = '/media/'
