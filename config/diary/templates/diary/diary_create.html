@@ -1,0 +1,26 @@
+{% extends 'diary/base.html' %}
+{% load static %}
+
+{% block title %}日記作成 | Private Diary{% endblock %}
+
+{% block active_diary_list %}active{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/clean-blog.min.css' %}">
+{% endblock %}
+
+{% block contents %}
+<div class="container">
+    <div class="row">
+        <div class="my-div-style  w-100">
+            <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="table">
+                {{ form.as_table }}
+            </table>
+            <button class="btn btn-primary" type="submit"></button>
+        </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
