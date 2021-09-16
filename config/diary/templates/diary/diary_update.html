@@ -6,7 +6,10 @@
 {% block active_diary_list %}active{% endblock %}
 
 {% block contents %}
-
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row">
         <div class="my-div-style w-100">
@@ -16,7 +19,7 @@
                     {{ form.as_table }}
                 </table>
                 <button class="btn btn-primary" type="submit">更新</button>
-                <a class="btn btn-secondary ml-2" href="{% url 'siary:diary_detail' object.pk %}">キャンセル</a>
+                <a class="btn btn-secondary ml-2" href="{% url 'diary:diary_detail' object.pk %}">キャンセル</a>
             </form>
         </div>
     </div>

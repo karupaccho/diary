@@ -5,11 +5,12 @@
 
 {% block active_diary_list %}active{% endblock %}
 
-{% block head %}
-<link rel="stylesheet" href="{% static 'css/clean-blog.min.css' %}">
-{% endblock %}
 
 {% block contents %}
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row">
         <div class="my-div-style  w-100">
@@ -18,7 +19,7 @@
             <table class="table">
                 {{ form.as_table }}
             </table>
-            <button class="btn btn-primary" type="submit"></button>
+            <button class="btn btn-primary" type="submit">作成</button>
         </form>
         </div>
     </div>
