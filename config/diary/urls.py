@@ -1,5 +1,3 @@
-from diary.models import Diary
-from diary.forms import InquiryForm
 from django.urls import path
 from .import views
 

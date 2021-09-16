@@ -12,6 +12,7 @@
 {% block contents %}
 <br>
 <br>
+<br>
 <div class="container">
     <div class="row">
         <div class="my-div-style w-100">
@@ -21,9 +22,9 @@
                 </div>
                 {% for diary in diary_list %}
                 <div class="post-preview">
-                    <a href="{% url 'diary_detail' diary.pk %">
+                    <a href="{% url 'diary:diary_detail' diary.pk %}">
                         <h2 class="post-title">
-                            {{ diary.title}}
+                            {{ diary.title }}
                         </h2>
                         <h3 class="post-subtitle">
                             {{ diary.content|truncatechars:20 }}
@@ -62,7 +63,7 @@
                 <!-- 次ページへのリンク -->
                 {% if page_obj.has_next %}
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ page_pbj.next_page_number }}">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

@@ -1,8 +1,6 @@
 from django import forms
 from django.core.mail import EmailMessage
-from django.forms import fields
 from .models import Diary
-from config.diary import models
 
 class InquiryForm(forms.Form):
     name = forms.CharField(label= "お名前", max_length=30)

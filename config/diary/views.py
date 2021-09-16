@@ -1,8 +1,7 @@
-# from config import diary
+# from config.urls import diary
 from django.contrib.messages.api import success
 from .forms import InquiryForm, DiaryCreateForm
 from django.http.response import HttpResponse
-from django.shortcuts import render
 from django.views import generic
 import logging
 from django.urls import reverse_lazy
@@ -41,19 +40,19 @@ class DiaryListView(LoginRequiredMixin, generic.ListView):
         diaries = Diary.objects.filter(user = self.request.user).order_by('-created_at')
         return diaries
 
-# class DetailView(generic.DeleteView):
-#     model = Post
-#     slug_field = "title"
-#     slug_url_kwarg = "title"
+class DetailView(generic.DeleteView):
+    model = Diary
+    slug_field = "title"
+    slug_url_kwarg = "title"
 
 class DiaryDetailView(LoginRequiredMixin,generic.DetailView):
     model = Diary
     template_name = 'diary/diary_detail.html'
-    pk_url_kwarg = 'id'
+
 
 class DiaryCreateView(LoginRequiredMixin,generic.CreateView):
     model = Diary
-    template_name = "diary_create.html"
+    template_name = "diary/diary_create.html"
     form_class = DiaryCreateForm
     success_url = reverse_lazy('diary:diary_list')
 
@@ -70,7 +69,7 @@ class DiaryCreateView(LoginRequiredMixin,generic.CreateView):
 
 class DiaryUpdateView(LoginRequiredMixin,generic.UpdateView):
     model = Diary
-    template_name = 'diary_update.html'
+    template_name = 'diary/diary_update.html'
     form_class = DiaryCreateForm
 
     def get_success_url(self):
@@ -86,8 +85,8 @@ class DiaryUpdateView(LoginRequiredMixin,generic.UpdateView):
 
 class DiaryDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Diary
-    template_name = 'diary_delete.html'
-    success_url = reverse_lazy('diary:siary_list')
+    template_name = 'diary/diary_delete.html'
+    success_url = reverse_lazy('diary:diary_list')
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request,"日記を削除しました")
